@@ -8,11 +8,6 @@
   <meta name="description" content="Meet goth & alternative girls near you. 18+." />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="Goth Girls Meet" />
-  <meta property="og:description" content="Meet goth & alt girls near you. 18+." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-
   <style>
     :root{
       --bg: #07070a;
@@ -31,22 +26,16 @@
     html, body { height: 100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(1200px 900px at 18% 12%, rgba(192,38,211,0.20), transparent 58%),
-        radial-gradient(1000px 700px at 86% 28%, rgba(239,68,68,0.14), transparent 62%),
-        radial-gradient(900px 600px at 52% 95%, rgba(255,255,255,0.04), transparent 55%),
+        radial-gradient(1200px 900px at 18% 12%, rgba(192,38,211,0.18), transparent 58%),
+        radial-gradient(1000px 700px at 86% 28%, rgba(239,68,68,0.12), transparent 62%),
         var(--bg);
       overflow-x: hidden;
     }
 
-    a { color: inherit; }
-    .wrap{
-      min-height: 100%;
-      display:flex;
-      flex-direction: column;
-    }
+    .wrap{ min-height: 100%; display:flex; flex-direction: column; }
 
     .nav{
       display:flex;
@@ -75,19 +64,13 @@
       box-shadow: 0 0 0 6px rgba(192,38,211,0.10);
     }
 
-    .nav-right{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-    }
-
     .pill{
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       padding: 7px 10px;
       border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
     }
 
     .hero{
@@ -102,7 +85,7 @@
       max-width: 1080px;
       width: 100%;
       display:grid;
-      grid-template-columns: 1.18fr 0.82fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 22px;
       align-items: stretch;
     }
@@ -117,21 +100,8 @@
       overflow:hidden;
       position: relative;
     }
-    .card:after{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(520px 220px at 18% 10%, rgba(192,38,211,0.14), transparent 62%),
-        radial-gradient(560px 240px at 86% 34%, rgba(239,68,68,0.10), transparent 62%);
-      opacity: .55;
-      pointer-events:none;
-    }
 
-    .main{
-      padding: 36px 34px 28px;
-      position: relative;
-      z-index: 1;
-    }
+    .main{ padding: 36px 34px 28px; }
 
     h1{
       margin: 0 0 10px;
@@ -148,12 +118,7 @@
       max-width: 56ch;
     }
 
-    .actions{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
+    .actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
 
     .btn{
       display:inline-flex;
@@ -169,72 +134,85 @@
       background: rgba(255,255,255,0.06);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select:none;
+      color: white;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.09);
-    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.09); }
     .btn-primary{
       background: linear-gradient(135deg, rgba(192,38,211,0.95), rgba(239,68,68,0.92));
       border-color: transparent;
       box-shadow: 0 18px 40px rgba(192,38,211,0.14);
     }
-    .btn-primary:hover{
-      background: linear-gradient(135deg, rgba(192,38,211,1), rgba(239,68,68,0.98));
-    }
 
-    .mini{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      color: var(--faint);
-      font-size: 12px;
-    }
-    .tag{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 7px 10px;
-      border-radius: 999px;
-    }
-
-    .side{
-      padding: 18px;
-      position: relative;
-      z-index: 1;
+    /* Image column */
+    .imageCard{
+      min-height: 420px;
       display:flex;
       flex-direction: column;
-      gap: 12px;
     }
 
-    .panel{
-      padding: 16px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,0.20);
+    .heroImg{
+      position: relative;
+      flex: 1;
+      overflow:hidden;
     }
-    .panel h3{
-      margin:0 0 6px;
+    .heroImg img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+    }
+    .heroOverlay{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.75)),
+        radial-gradient(700px 340px at 30% 20%, rgba(192,38,211,0.18), transparent 60%),
+        radial-gradient(700px 340px at 75% 30%, rgba(239,68,68,0.14), transparent 60%);
+    }
+    .heroCaption{
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-end;
+      gap: 14px;
+    }
+    .heroCaption .title{
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 14px;
+      color: rgba(255,255,255,0.92);
+    }
+    .heroCaption .tiny{
       font-size: 12px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.80);
+      color: rgba(255,255,255,0.65);
     }
-    .panel p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
+
+    .tiles{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
     }
-    .panel ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,0.72);
-      font-size: 13px;
-      line-height: 1.6;
+    .tile{
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,0.04);
     }
-    .panel li{ margin: 6px 0; }
+    .tile img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.02);
+    }
 
     .footer{
       max-width:1080px;
@@ -255,26 +233,11 @@
       text-decoration:none;
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
-    .footer a:hover{
-      border-bottom-color: rgba(255,255,255,0.35);
-    }
-
-    .legal{
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-
-    .disclosure{
-      opacity: 0.55;
-      max-width: 62ch;
-    }
 
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
       .main{ padding: 28px 22px 22px; }
-      .footer{ padding-bottom: 26px; }
+      .imageCard{ min-height: 520px; }
     }
   </style>
 </head>
@@ -283,24 +246,23 @@
   <div class="wrap">
     <div class="nav">
       <div class="brand"><span class="dot"></span> Goth Girls Meet</div>
-      <div class="nav-right">
-        <span class="pill">18+ only</span>
-      </div>
+      <div class="pill">18+ only</div>
     </div>
 
     <main class="hero">
       <section class="grid">
+
+        <!-- LEFT: copy + CTA -->
         <div class="card">
           <div class="main">
             <h1>Meet goth & alt girls near you.</h1>
-
             <p class="sub">
               A simple way to connect with people who actually share your taste — music, style, and nightlife.
             </p>
 
             <div class="actions">
               <!-- TODO: replace this # with your affiliate link -->
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer sponsored" aria-label="Chat Now">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer sponsored">
                 Chat Now
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M7 17L17 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -308,46 +270,39 @@
                 </svg>
               </a>
             </div>
-
-            <div class="mini" aria-label="Tags">
-              <span class="tag">Goth</span>
-              <span class="tag">Alt</span>
-              <span class="tag">Punk</span>
-              <span class="tag">Emo</span>
-            </div>
           </div>
         </div>
 
-        <aside class="card">
-          <div class="side">
-            <div class="panel">
-              <h3>How it works</h3>
-              <ul>
-                <li>Tap <b>Chat Now</b></li>
-                <li>Pick your city + preferences</li>
-                <li>Start chatting</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <h3>Safety</h3>
-              <p>Keep personal details private until you’re comfortable. If something feels off, bounce.</p>
+        <!-- RIGHT: images (hero + tiles) -->
+        <aside class="card imageCard">
+          <div class="heroImg">
+            <!-- Put your image at: public/images/hero.jpg -->
+            <img src="/images/hero.jpg" alt="Goth & alternative vibe" />
+            <div class="heroOverlay"></div>
+            <div class="heroCaption">
+              <div>
+                <div class="title">Goth / Alt / Punk</div>
+                <div class="tiny">Local connections • respectful vibes</div>
+              </div>
+              <div class="tiny">18+ only</div>
             </div>
           </div>
+
+          <div class="tiles">
+            <!-- Put your images at: public/images/tile1.jpg etc -->
+            <div class="tile"><img src="/images/tile1.jpg" alt="Alternative style" /></div>
+            <div class="tile"><img src="/images/tile2.jpg" alt="Goth fashion" /></div>
+            <div class="tile"><img src="/images/tile3.jpg" alt="Nightlife vibe" /></div>
+          </div>
         </aside>
+
       </section>
     </main>
 
     <footer class="footer">
       <div>© <span id="y"></span> Goth Girls Meet</div>
-
-      <div class="legal">
-        <a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a>
-      </div>
-
-      <div class="disclosure">
-        Disclosure: This site may receive compensation for referrals.
-      </div>
+      <div><a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a></div>
+      <div style="opacity:.55; max-width:62ch;">Disclosure: This site may receive compensation for referrals.</div>
     </footer>
   </div>
 
