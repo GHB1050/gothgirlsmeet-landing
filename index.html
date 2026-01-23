@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Goth Girls Meet</title>
 
-  <meta name="description" content="Meet goth & alternative girls near you. 18+ niche community for goth & alt culture." />
+  <meta name="description" content="Meet goth & alternative girls near you. 18+." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Social previews (basic, legit) -->
   <meta property="og:title" content="Goth Girls Meet" />
   <meta property="og:description" content="Meet goth & alt girls near you. 18+." />
   <meta property="og:type" content="website" />
@@ -18,13 +17,12 @@
     :root{
       --bg: #07070a;
       --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.10);
       --text: rgba(255,255,255,0.92);
       --muted: rgba(255,255,255,0.70);
       --faint: rgba(255,255,255,0.55);
       --line: rgba(255,255,255,0.12);
-      --accent: #c026d3; /* magenta */
-      --accent2: #ef4444; /* red */
+      --accent: #c026d3;
+      --accent2: #ef4444;
       --shadow: 0 20px 60px rgba(0,0,0,0.55);
       --radius: 18px;
     }
@@ -36,9 +34,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
       background:
-        radial-gradient(1200px 900px at 18% 12%, rgba(192,38,211,0.22), transparent 58%),
-        radial-gradient(1000px 700px at 86% 28%, rgba(239,68,68,0.16), transparent 62%),
-        radial-gradient(900px 600px at 52% 95%, rgba(255,255,255,0.05), transparent 55%),
+        radial-gradient(1200px 900px at 18% 12%, rgba(192,38,211,0.20), transparent 58%),
+        radial-gradient(1000px 700px at 86% 28%, rgba(239,68,68,0.14), transparent 62%),
+        radial-gradient(900px 600px at 52% 95%, rgba(255,255,255,0.04), transparent 55%),
         var(--bg);
       overflow-x: hidden;
     }
@@ -77,20 +75,19 @@
       box-shadow: 0 0 0 6px rgba(192,38,211,0.10);
     }
 
-    .nav-links{
+    .nav-right{
       display:flex;
-      gap:12px;
+      gap:10px;
       align-items:center;
       font-size: 12px;
-      color: rgba(255,255,255,0.70);
+      color: rgba(255,255,255,0.65);
     }
-    .nav-links a{
-      text-decoration:none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-    }
-    .nav-links a:hover{
-      border-bottom-color: rgba(255,255,255,0.35);
+
+    .pill{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 7px 10px;
+      border-radius: 999px;
     }
 
     .hero{
@@ -124,8 +121,8 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(520px 220px at 18% 10%, rgba(192,38,211,0.18), transparent 62%),
-        radial-gradient(560px 240px at 86% 34%, rgba(239,68,68,0.14), transparent 62%);
+        radial-gradient(520px 220px at 18% 10%, rgba(192,38,211,0.14), transparent 62%),
+        radial-gradient(560px 240px at 86% 34%, rgba(239,68,68,0.10), transparent 62%);
       opacity: .55;
       pointer-events:none;
     }
@@ -136,37 +133,20 @@
       z-index: 1;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.72);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 8px 10px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .eyebrow .chip{
-      width: 6px; height: 6px; border-radius: 999px;
-      background: rgba(255,255,255,0.55);
-    }
-
     h1{
       margin: 0 0 10px;
       font-size: clamp(30px, 4vw, 46px);
       line-height: 1.05;
       letter-spacing: -0.02em;
     }
+
     .sub{
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--muted);
       font-size: 15px;
       line-height: 1.65;
       max-width: 56ch;
     }
-    .sub strong{ color: rgba(255,255,255,0.90); font-weight: 700; }
 
     .actions{
       display:flex;
@@ -198,7 +178,7 @@
     .btn-primary{
       background: linear-gradient(135deg, rgba(192,38,211,0.95), rgba(239,68,68,0.92));
       border-color: transparent;
-      box-shadow: 0 18px 40px rgba(192,38,211,0.16);
+      box-shadow: 0 18px 40px rgba(192,38,211,0.14);
     }
     .btn-primary:hover{
       background: linear-gradient(135deg, rgba(192,38,211,1), rgba(239,68,68,0.98));
@@ -232,14 +212,14 @@
       padding: 16px 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.22);
+      background: rgba(0,0,0,0.20);
     }
     .panel h3{
       margin:0 0 6px;
-      font-size: 13px;
-      letter-spacing: 0.02em;
+      font-size: 12px;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.80);
     }
     .panel p{
       margin:0;
@@ -247,7 +227,6 @@
       font-size: 13px;
       line-height: 1.55;
     }
-
     .panel ul{
       margin: 10px 0 0;
       padding-left: 18px;
@@ -256,12 +235,6 @@
       line-height: 1.6;
     }
     .panel li{ margin: 6px 0; }
-
-    .divider{
-      height: 1px;
-      background: var(--line);
-      margin: 10px 0;
-    }
 
     .footer{
       max-width:1080px;
@@ -280,10 +253,10 @@
     .footer a{
       color: rgba(255,255,255,0.78);
       text-decoration:none;
-      border-bottom: 1px solid rgba(255,255,255,0.22);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .footer a:hover{
-      border-bottom-color: rgba(255,255,255,0.45);
+      border-bottom-color: rgba(255,255,255,0.35);
     }
 
     .legal{
@@ -293,9 +266,13 @@
       align-items:center;
     }
 
+    .disclosure{
+      opacity: 0.55;
+      max-width: 62ch;
+    }
+
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
-      .side{ order: 2; }
       .main{ padding: 28px 22px 22px; }
       .footer{ padding-bottom: 26px; }
     }
@@ -306,10 +283,8 @@
   <div class="wrap">
     <div class="nav">
       <div class="brand"><span class="dot"></span> Goth Girls Meet</div>
-
-      <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#safety">Safety</a>
+      <div class="nav-right">
+        <span class="pill">18+ only</span>
       </div>
     </div>
 
@@ -317,16 +292,14 @@
       <section class="grid">
         <div class="card">
           <div class="main">
-            <div class="eyebrow"><span class="chip"></span> 18+ • goth / alt / punk • local connections</div>
-
             <h1>Meet goth & alt girls near you.</h1>
 
             <p class="sub">
-              A simple way to connect with people who actually share your taste — <strong>music</strong>, <strong>style</strong>, and <strong>nightlife</strong>.
+              A simple way to connect with people who actually share your taste — music, style, and nightlife.
             </p>
 
             <div class="actions">
-              <!-- TODO: replace # with your affiliate link -->
+              <!-- TODO: replace this # with your affiliate link -->
               <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer sponsored" aria-label="Chat Now">
                 Chat Now
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -334,17 +307,9 @@
                   <path d="M9 7H17V15" stroke="white" stroke-width="2" stroke-linecap="round"/>
                 </svg>
               </a>
-
-              <a class="btn" href="#how" aria-label="How it works">
-                How it works
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 5v14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M19 12H5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </a>
             </div>
 
-            <div class="mini">
+            <div class="mini" aria-label="Tags">
               <span class="tag">Goth</span>
               <span class="tag">Alt</span>
               <span class="tag">Punk</span>
@@ -355,25 +320,18 @@
 
         <aside class="card">
           <div class="side">
-            <div class="panel" id="how">
+            <div class="panel">
               <h3>How it works</h3>
               <ul>
-                <li>Tap <b>Chat Now</b> to open the matching experience</li>
-                <li>Choose your city + preferences</li>
-                <li>Start chatting (keep it respectful)</li>
+                <li>Tap <b>Chat Now</b></li>
+                <li>Pick your city + preferences</li>
+                <li>Start chatting</li>
               </ul>
-              <div class="divider"></div>
-              <p><span style="color: rgba(255,255,255,0.70);">Tip:</span> Real photo + 1–2 lines of bio works best.</p>
-            </div>
-
-            <div class="panel" id="safety">
-              <h3>Safety + privacy</h3>
-              <p>18+ only. Don’t share personal details until you’re comfortable. If something feels off, bounce.</p>
             </div>
 
             <div class="panel">
-              <h3>Disclosure</h3>
-              <p>This site may receive compensation for referrals. That helps keep it running.</p>
+              <h3>Safety</h3>
+              <p>Keep personal details private until you’re comfortable. If something feels off, bounce.</p>
             </div>
           </div>
         </aside>
@@ -381,12 +339,14 @@
     </main>
 
     <footer class="footer">
-      <div>© <span id="y"></span> Goth Girls Meet • 18+ only</div>
+      <div>© <span id="y"></span> Goth Girls Meet</div>
 
       <div class="legal">
         <a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a>
-        <span style="opacity:.55;">•</span>
-        <a href="#disclosure" onclick="document.getElementById('disclosure').scrollIntoView({behavior:'smooth'}); return false;">Disclosure</a>
+      </div>
+
+      <div class="disclosure">
+        Disclosure: This site may receive compensation for referrals.
       </div>
     </footer>
   </div>
