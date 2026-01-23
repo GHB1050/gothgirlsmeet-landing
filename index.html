@@ -1,313 +1,455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Goth Girls Meet</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goth Girls Meet</title>
+    <meta
+      name="description"
+      content="Meet goth & alternative singles near you. 18+ only."
+    />
 
-  <meta name="description" content="Meet goth & alternative girls near you. 18+." />
-  <meta name="robots" content="index, follow" />
+    <!-- Social preview -->
+    <meta property="og:title" content="Goth Girls Meet" />
+    <meta property="og:description" content="Find your dark match tonight. 18+ only." />
+    <meta property="og:type" content="website" />
 
-  <style>
-    :root{
-      --bg: #07070a;
-      --card: rgba(255,255,255,0.06);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --faint: rgba(255,255,255,0.55);
-      --line: rgba(255,255,255,0.12);
-      --accent: #c026d3;
-      --accent2: #ef4444;
-      --shadow: 0 20px 60px rgba(0,0,0,0.55);
-      --radius: 18px;
-    }
+    <style>
+      :root {
+        --bg: #07070a;
+        --card: rgba(255,255,255,0.06);
+        --card2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.68);
+        --muted2: rgba(255,255,255,0.52);
+        --accent: #ff2d88;
+        --accent2: #a855f7;
+        --shadow: 0 20px 70px rgba(0,0,0,0.55);
+      }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 900px at 18% 12%, rgba(192,38,211,0.18), transparent 58%),
-        radial-gradient(1000px 700px at 86% 28%, rgba(239,68,68,0.12), transparent 62%),
-        var(--bg);
-      overflow-x: hidden;
-    }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+      }
 
-    .wrap{ min-height: 100%; display:flex; flex-direction: column; }
+      /* Background */
+      .bg {
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(1200px 650px at 15% 10%, rgba(168,85,247,0.35), transparent 60%),
+          radial-gradient(900px 520px at 80% 20%, rgba(255,45,136,0.28), transparent 55%),
+          radial-gradient(1000px 700px at 50% 85%, rgba(59,130,246,0.10), transparent 60%),
+          linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.85));
+        z-index: -3;
+      }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      padding: 22px 22px 0;
-      max-width: 1080px;
-      width: 100%;
-      margin: 0 auto;
-    }
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        opacity: .35;
+        z-index: -2;
+      }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(255,255,255,0.88);
-    }
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+        padding: 26px 0 60px;
+      }
 
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(192,38,211,0.10);
-    }
+      /* Top bar */
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 2px 26px;
+      }
 
-    .pill{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-    }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--text);
+      }
 
-    .hero{
-      flex: 1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 26px 22px 44px;
-    }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 0 6px rgba(255,45,136,0.12);
+      }
 
-    .grid{
-      max-width: 1080px;
-      width: 100%;
-      display:grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
-      align-items: stretch;
-    }
+      .brand span {
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-size: 12px;
+        opacity: 0.9;
+      }
 
-    .card{
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      overflow:hidden;
-      position: relative;
-    }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        color: var(--muted);
+        font-size: 12px;
+        white-space: nowrap;
+      }
 
-    .main{ padding: 36px 34px 28px; }
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        align-items: stretch;
+      }
 
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
+      @media (max-width: 940px) {
+        .hero { grid-template-columns: 1fr; }
+      }
 
-    .sub{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-      max-width: 56ch;
-    }
+      .card {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
 
-    .actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+      .hero-left {
+        padding: 26px 24px 20px;
+        position: relative;
+        min-height: 360px;
+      }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      text-decoration:none;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
-      color: white;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.09); }
-    .btn-primary{
-      background: linear-gradient(135deg, rgba(192,38,211,0.95), rgba(239,68,68,0.92));
-      border-color: transparent;
-      box-shadow: 0 18px 40px rgba(192,38,211,0.14);
-    }
+      .hero-left::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(255,45,136,0.14), transparent 35%),
+          linear-gradient(225deg, rgba(168,85,247,0.14), transparent 40%);
+        pointer-events: none;
+      }
 
-    /* Image column */
-    .imageCard{
-      min-height: 420px;
-      display:flex;
-      flex-direction: column;
-    }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 14px;
+      }
 
-    .heroImg{
-      position: relative;
-      flex: 1;
-      overflow:hidden;
-    }
-    .heroImg img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.05);
-      transform: scale(1.02);
-    }
-    .heroOverlay{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.75)),
-        radial-gradient(700px 340px at 30% 20%, rgba(192,38,211,0.18), transparent 60%),
-        radial-gradient(700px 340px at 75% 30%, rgba(239,68,68,0.14), transparent 60%);
-    }
-    .heroCaption{
-      position:absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 16px;
-      display:flex;
-      justify-content: space-between;
-      align-items:flex-end;
-      gap: 14px;
-    }
-    .heroCaption .title{
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      font-size: 14px;
-      color: rgba(255,255,255,0.92);
-    }
-    .heroCaption .tiny{
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-    }
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 4.2vw, 54px);
+        line-height: 1.03;
+        letter-spacing: -0.02em;
+      }
 
-    .tiles{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 12px;
-      border-top: 1px solid var(--line);
-      background: rgba(0,0,0,0.18);
-    }
-    .tile{
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-      aspect-ratio: 1 / 1;
-      background: rgba(255,255,255,0.04);
-    }
-    .tile img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.02);
-    }
+      .sub {
+        margin: 0;
+        max-width: 56ch;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
 
-    .footer{
-      max-width:1080px;
-      margin: 0 auto;
-      width:100%;
-      padding: 0 22px 22px;
-      color: rgba(255,255,255,0.55);
-      font-size: 12px;
-      line-height: 1.5;
-      display:flex;
-      align-items:flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .footer a{
-      color: rgba(255,255,255,0.78);
-      text-decoration:none;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-    }
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 4px;
+      }
 
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-      .main{ padding: 28px 22px 22px; }
-      .imageCard{ min-height: 520px; }
-    }
-  </style>
-</head>
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.06);
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 650;
+        cursor: pointer;
+        transition: transform .12s ease, background .12s ease, border-color .12s ease;
+        user-select: none;
+      }
 
-<body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand"><span class="dot"></span> Goth Girls Meet</div>
-      <div class="pill">18+ only</div>
-    </div>
+      .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.18); }
+      .btn:active { transform: translateY(0px); }
 
-    <main class="hero">
-      <section class="grid">
+      .btn-primary {
+        background: linear-gradient(135deg, rgba(255,45,136,0.95), rgba(168,85,247,0.95));
+        border-color: rgba(255,255,255,0.20);
+        box-shadow: 0 12px 40px rgba(255,45,136,0.18);
+      }
 
-        <!-- LEFT: copy + CTA -->
-        <div class="card">
-          <div class="main">
-            <h1>Meet goth & alt girls near you.</h1>
+      .btn-primary:hover {
+        background: linear-gradient(135deg, rgba(255,45,136,1), rgba(168,85,247,1));
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .badge {
+        font-size: 12px;
+        color: var(--muted);
+        border: 1px solid rgba(255,255,255,0.10);
+        background: rgba(0,0,0,0.20);
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      /* Right card: photos */
+      .hero-right {
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .photo {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.10);
+        background: rgba(255,255,255,0.03);
+        min-height: 140px;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.05) saturate(1.05);
+        transform: scale(1.02);
+      }
+
+      .photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.40), rgba(0,0,0,0.05));
+        pointer-events: none;
+      }
+
+      .trust {
+        border-top: 1px solid rgba(255,255,255,0.10);
+        padding: 12px 14px 14px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .trust-title {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        color: rgba(255,255,255,0.86);
+      }
+
+      .trust-list {
+        margin: 0;
+        padding-left: 16px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      /* Lower section */
+      .lower {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      @media (max-width: 940px) {
+        .lower { grid-template-columns: 1fr; }
+      }
+
+      .mini {
+        padding: 16px;
+      }
+
+      .mini h3 {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        letter-spacing: 0.01em;
+      }
+
+      .mini p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      footer {
+        margin-top: 22px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted2);
+        font-size: 12px;
+        padding: 0 2px;
+      }
+
+      footer a {
+        color: var(--muted2);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.18);
+      }
+
+      footer a:hover {
+        color: rgba(255,255,255,0.75);
+        border-bottom-color: rgba(255,255,255,0.40);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+    <div class="grain"></div>
+
+    <main class="container">
+      <div class="topbar">
+        <a class="brand" href="#">
+          <span class="dot"></span>
+          <span>Goth Girls Meet</span>
+        </a>
+
+        <div class="pill">18+ • niche dating • quick matches</div>
+      </div>
+
+      <section class="hero">
+        <!-- Left -->
+        <div class="card hero-left">
+          <div class="hero-inner">
+            <h1>Find your dark match tonight.</h1>
             <p class="sub">
-              A simple way to connect with people who actually share your taste — music, style, and nightlife.
+              Meet goth & alternative singles near you — a fast, simple way to connect with people who actually share the vibe.
             </p>
 
-            <div class="actions">
-              <!-- TODO: replace this # with your affiliate link -->
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer sponsored">
-                Chat Now
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M9 7H17V15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+                Chat Now <span aria-hidden="true">↗</span>
               </a>
+
+              <a class="btn" href="#safety">Safety first</a>
+            </div>
+
+            <div class="badges" aria-label="Key features">
+              <span class="badge">Local matches</span>
+              <span class="badge">Private chat</span>
+              <span class="badge">No spam vibes</span>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT: images (hero + tiles) -->
-        <aside class="card imageCard">
-          <div class="heroImg">
-            <!-- Put your image at: public/images/hero.jpg -->
-            <img src="/images/hero.jpg" alt="Goth & alternative vibe" />
-            <div class="heroOverlay"></div>
-            <div class="heroCaption">
-              <div>
-                <div class="title">Goth / Alt / Punk</div>
-                <div class="tiny">Local connections • respectful vibes</div>
-              </div>
-              <div class="tiny">18+ only</div>
+        <!-- Right -->
+        <div class="card hero-right">
+          <div class="photo-grid" aria-label="Preview photos">
+            <!-- Pexels images (hotlinked). If you prefer, download + commit them instead. -->
+            <div class="photo">
+              <img
+                src="https://images.pexels.com/photos/35435510/pexels-photo-35435510.jpeg?cs=srgb&fm=jpg"
+                alt="Alternative fashion portrait"
+                loading="lazy"
+              />
+            </div>
+            <div class="photo">
+              <img
+                src="https://images.pexels.com/photos/35435507/pexels-photo-35435507.jpeg?cs=srgb&fm=jpg"
+                alt="Goth style portrait"
+                loading="lazy"
+              />
+            </div>
+            <div class="photo" style="grid-column: 1 / span 2; min-height: 170px;">
+              <img
+                src="https://images.pexels.com/photos/35435484/pexels-photo-35435484.jpeg?cs=srgb&fm=jpg"
+                alt="Dark aesthetic portrait"
+                loading="lazy"
+              />
             </div>
           </div>
 
-          <div class="tiles">
-            <!-- Put your images at: public/images/tile1.jpg etc -->
-            <div class="tile"><img src="/images/tile1.jpg" alt="Alternative style" /></div>
-            <div class="tile"><img src="/images/tile2.jpg" alt="Goth fashion" /></div>
-            <div class="tile"><img src="/images/tile3.jpg" alt="Nightlife vibe" /></div>
+          <div class="trust" id="safety">
+            <div class="trust-title">Safety & privacy</div>
+            <ul class="trust-list">
+              <li>18+ only. Don’t share personal details too early.</li>
+              <li>Meet in public first if you decide to meet.</li>
+              <li>Trust your gut — block/report if anything feels off.</li>
+            </ul>
           </div>
-        </aside>
-
+        </div>
       </section>
+
+      <section class="lower" aria-label="Why this exists">
+        <div class="card mini">
+          <h3>Built for the niche</h3>
+          <p>
+            A quick path to meet people who are into goth / alt culture — without wading through endless mismatches.
+          </p>
+        </div>
+        <div class="card mini">
+          <h3>Frictionless</h3>
+          <p>
+            One button. Start chatting. If you don’t vibe, bounce.
+          </p>
+        </div>
+        <div class="card mini">
+          <h3>Realistic expectations</h3>
+          <p>
+            This is a lightweight landing page. If you click out, you’re taken to the best current option available.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> Goth Girls Meet • 18+ only</div>
+        <div>
+          <a href="mailto:hello@gothgirlsmeet.com">Contact</a>
+          &nbsp;•&nbsp;
+          <a href="#" onclick="alert('If you use affiliate links, keep a disclosure somewhere on the site (footer is fine).'); return false;">
+            Affiliate disclosure
+          </a>
+        </div>
+      </footer>
     </main>
 
-    <footer class="footer">
-      <div>© <span id="y"></span> Goth Girls Meet</div>
-      <div><a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a></div>
-      <div style="opacity:.55; max-width:62ch;">Disclosure: This site may receive compensation for referrals.</div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
