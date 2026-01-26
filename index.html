@@ -117,15 +117,6 @@
       overflow:hidden;
       position: relative;
     }
-    .card:after{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(520px 220px at 18% 10%, rgba(192,38,211,0.14), transparent 62%),
-        radial-gradient(560px 240px at 86% 34%, rgba(239,68,68,0.10), transparent 62%);
-      opacity: .55;
-      pointer-events:none;
-    }
 
     .main{
       padding: 36px 34px 28px;
@@ -170,18 +161,10 @@
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select:none;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.09);
-    }
+
     .btn-primary{
       background: linear-gradient(135deg, rgba(192,38,211,0.95), rgba(239,68,68,0.92));
       border-color: transparent;
-      box-shadow: 0 18px 40px rgba(192,38,211,0.14);
-    }
-    .btn-primary:hover{
-      background: linear-gradient(135deg, rgba(192,38,211,1), rgba(239,68,68,0.98));
     }
 
     .mini{
@@ -192,6 +175,7 @@
       color: var(--faint);
       font-size: 12px;
     }
+
     .tag{
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
@@ -201,40 +185,17 @@
 
     .side{
       padding: 18px;
-      position: relative;
-      z-index: 1;
       display:flex;
       flex-direction: column;
       gap: 12px;
     }
 
     .panel{
-      padding: 16px 16px;
+      padding: 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
       background: rgba(0,0,0,0.20);
     }
-    .panel h3{
-      margin:0 0 6px;
-      font-size: 12px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.80);
-    }
-    .panel p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-    .panel ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,0.72);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-    .panel li{ margin: 6px 0; }
 
     .footer{
       max-width:1080px;
@@ -243,27 +204,16 @@
       padding: 0 22px 22px;
       color: rgba(255,255,255,0.55);
       font-size: 12px;
-      line-height: 1.5;
       display:flex;
-      align-items:flex-start;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .footer a{
       color: rgba(255,255,255,0.78);
       text-decoration:none;
       border-bottom: 1px solid rgba(255,255,255,0.18);
-    }
-    .footer a:hover{
-      border-bottom-color: rgba(255,255,255,0.35);
-    }
-
-    .legal{
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items:center;
     }
 
     .disclosure{
@@ -273,8 +223,6 @@
 
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
-      .main{ padding: 28px 22px 22px; }
-      .footer{ padding-bottom: 26px; }
     }
   </style>
 </head>
@@ -299,17 +247,18 @@
             </p>
 
             <div class="actions">
-              <!-- TODO: replace this # with your affiliate link -->
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer sponsored" aria-label="Chat Now">
+              <a
+                class="btn btn-primary"
+                href="https://t.acrsmartcam.com/402712/2994/0?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN"
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                aria-label="Chat with goth and alternative girls"
+              >
                 Chat Now
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M9 7H17V15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
               </a>
             </div>
 
-            <div class="mini" aria-label="Tags">
+            <div class="mini">
               <span class="tag">Goth</span>
               <span class="tag">Alt</span>
               <span class="tag">Punk</span>
@@ -340,11 +289,7 @@
 
     <footer class="footer">
       <div>© <span id="y"></span> Goth Girls Meet</div>
-
-      <div class="legal">
-        <a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a>
-      </div>
-
+      <div><a href="mailto:hello@gothgirlsmeet.com">hello@gothgirlsmeet.com</a></div>
       <div class="disclosure">
         Disclosure: This site may receive compensation for referrals.
       </div>
